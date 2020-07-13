@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -33,6 +35,21 @@ export default {
   },
   methods: {
     sendEmail() {
+      axios
+        .post("https://tranquil-spire-49594.herokuapp.com/", {
+          firstName: "Fred",
+          lastName: "Flintstone",
+          emailAddress: this.address,
+          subject: this.subject,
+          message: this.message
+        })
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+
       this.name = "";
       this.address = "";
       this.subject = "";
