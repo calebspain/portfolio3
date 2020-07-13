@@ -37,8 +37,7 @@ export default {
     sendEmail() {
       axios
         .post("https://tranquil-spire-49594.herokuapp.com/", {
-          firstName: "Fred",
-          lastName: "Flintstone",
+          name: this.name,
           emailAddress: this.address,
           subject: this.subject,
           message: this.message
